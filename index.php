@@ -1,15 +1,16 @@
 <head>
 <link rel="stylesheet" href="static/style.css">
-<title>Evony map :: DrWhat Project ::0.0.6.1 </title>
+<title>Evony map :: DrWhat Project ::0.0.7 </title>
 </head>
 <?PHP 
 require('include/ArrServer.inc.php');
+require('include/access.inc.php');
 $form="<form action=\"#\" method=\get\"><fieldset>Server Number <input type=\"text\" name=\"s\"><br>Super Server? <input type=\"radio\" name=\"ss\" id=\"ss\" value=1>
 			*If yes Do not put 'SS' in, example for SS60 you would put 60 and tick Super server<br><input type=\"submit\" value=\"Submit\"></fieldset></form>";
 if (!isset($_GET['s'])){
-	echo "<div id=\"ribbon\"><h1><u>:: EvoMap ::</u></h1><h2>Please choose your server number.</h2></div>";
+	echo "<div id=\"ribbon\"><h1><u>:: EvoMap ::</u></h1><h2>Please choose your server number.</h2></div>".$log;
 	echo "<div id\"main\"><h3> This is a DrWhat development, this project is protect under the <a href=\"http://www.gnu.org/licenses/gpl.html\">GNU GENERAL PUBLIC LICENSE Version 3</a></h3>
-	<hr><section>".$form." <h3>TODO:</h3></br>
+	<br><hr><section>".$form." <h3>TODO:</h3></br>
 	Find subtitle software to scan all servers speedy,</br>
 	JS table formatting</br>
 	Add search</br>
@@ -18,22 +19,20 @@ if (!isset($_GET['s'])){
 	&copy DrWhat 2013";
 	exit();
 } else {
-@$ServerNumrical=strip_tags($_GET['s']);
+	$ServerNumrical=strip_tags($_GET['s']);
 }
 if (!isset($_GET['ss'])){
 	$_GET['ss']=0;
 	$isSuperServer=0;
 }else{
-$isSuperServer=$_GET['ss'];
-}
-
-
+	$isSuperServer=$_GET['ss'];
+	}
 if ($isSuperServer==0) {
 		if ( array_key_exists($ServerNumrical,$ArrServerNumrical)){
 			$RequireFile = $ArrServerNumrical[$ServerNumrical]['Path'].'/'.$ArrServerNumrical[$ServerNumrical]['FileName'].'.csv';
 		}else {
  			echo "<div id=\"ribbon\"><h1><u>:: EvoMap ::</u></h1></br></div>
-			<div id=\"main\"><section><h3>We do not have that server in our list, Email drwhat@cryto.net To request it to be added.</h3>
+			<div id=\"main\"><section><h3>We do not have that server in our list, Email drwhat@cryto.net To request it to be added.</h3></section>".$log."<section>
 			<br>".$form."</section></div>
 			&copy DrWhat 2013"; 
 			$PageErrorId = 1;
@@ -45,7 +44,7 @@ if ($isSuperServer==0) {
 			$ServerNumrical="ss".$ServerNumrical;
 		} else { 
  			echo "<div id=\"ribbon\"><h1><u>:: EvoMap ::</u></h1></br></div>
-			<div id=\"main\"><section><h3>We do not have that server in our list, Email drwhat@cryto.net To request it to be added.</h3>
+			<div id=\"main\"><section><h3>We do not have that server in our list, Email drwhat@cryto.net To request it to be added.</h3></section>".$log."<section>
 			<br>".$form."</section></div>
 			&copy DrWhat 2013"; 
 			$PageErrorId = 1;
@@ -57,7 +56,7 @@ if ($isSuperServer==0) {
 <body>
 <div id="ribbon">
 <h1><u>:: EvoMap ::</u></h1>
-<h2></div><div id="main">
+<h2></div><div id="main"><?php echo $log;?>
 <h3> This is a DrWhat project, this project is protect under the <a href="http://www.gnu.org/licenses/gpl.html">GNU GENERAL PUBLIC LICENSE Version 3</a></h3>
 <hr><?php echo $form;?><hr>
 <section><h3>TODO:</h3></br>
@@ -68,8 +67,9 @@ if ($isSuperServer==0) {
 </br></br>
 <?php
 if (empty($RequireFile)){
+	exit();
 }else{
-echo "You are viewing Coordenates for server ".$ServerNumrical.". </br> Download full list by <a href='".$RequireFile."'>clicking here</a>";
+	echo "You are viewing Coordenates for server ".$ServerNumrical.". </br> Download full list by <a href='".$RequireFile."'>clicking here</a>";
 }
 ?></br><hr>
 Any suggestions Email: DrWhat@Cryto.net
@@ -91,7 +91,8 @@ Any suggestions Email: DrWhat@Cryto.net
 <tbody>
 <?PHP
 if (empty($RequireFile)){
-	}else{
+	exit();
+}else{
 	if (($handle = fopen($RequireFile, "r")) !== FALSE) {
     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE)
     {
@@ -105,7 +106,7 @@ if (empty($RequireFile)){
     fclose($handle);
 	}
 }
-exit();
+
 ?>
 </tbody>
 </table> 
