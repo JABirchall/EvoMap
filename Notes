@@ -1,0 +1,16 @@
+Query:
+SELECT * FROM `server_data_166` LIMIT 0, 250 ;
+Rows: 250
+
+
+if ($isSuperServer==0) {
+		if ( array_key_exists($ServerNumrical,$ArrServerNumrical)){
+			$query("SELECT * FROM `server_data_".$ServerNumrical."` LIMIT 0, 250 ;");
+		}
+	}else if ($isSuperServer == 1){
+		if ( array_key_exists($ServerNumrical,$ArrSuperServerNumrical)){
+			$ServerNumrical="ss".$ServerNumrical;
+			$query("SELECT * FROM `server_data_".$ServerNumrical."` LIMIT 0, 250 ;");
+		} 
+	}
+?>
