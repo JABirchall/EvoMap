@@ -8,5 +8,5 @@ follow these steps to successfully install and use the system:
 1. open modulatemedia.php in the connections folder and change the database, username and password to yours.
 2. import db.sql in phpmyadmin or copy and paste the query.
 3. upload the files to your webserver in the same structure as provided.
-4. Include access.php and change line 51 in login.php
+4. Include access.php and change line 51 in login.php if needed
 
