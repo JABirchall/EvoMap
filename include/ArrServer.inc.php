@@ -3,16 +3,12 @@
 	exit('access illegally.');
 } */
 
-$ArrServerNumrical['166']=array(
+$ArrServerNumrical['1']=array(
 	"Path"=>"files",
-	"FileName"=>"166"
+	"FileName"=>"1"
 );
-$ArrServerNumrical['171']=array(
+$ArrSuperServerNumrical['1']=array(
 	"Path"=>"files",
-	"FileName"=>"171"
-);
-$ArrSuperServerNumrical['60']=array(
-	"Path"=>"files",
-	"FileName"=>"ss60"
+	"FileName"=>"1"
 );
 ?>
