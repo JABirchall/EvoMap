@@ -23,7 +23,7 @@ if ($isSuperServer==0) {
 		if ( array_key_exists($ServerNumrical,$ArrServerNumrical)){
 			if (isset($_POST['lord']))[
 				$lord=$_POST['lord'];
-				$query("SELECT * FROM `server_data_166` WHERE `allaince` LIKE '%".$lord."%' LIMIT 0 , 250")
+				$query("SELECT * FROM `server_data_".$ServerNumrical."` WHERE `allaince` LIKE '%".$lord."%' LIMIT 0 , 250")
 			}
 			$query("SELECT * FROM `server_data_".$ServerNumrical."` LIMIT 0, 250 ;");
 		}
@@ -32,7 +32,7 @@ if ($isSuperServer==0) {
 			$ServerNumrical="ss".$ServerNumrical;
 			if (isset($_POST['lord']))[
 				$lord=$_POST['lord'];
-				$query("SELECT * FROM `server_data_166` WHERE `allaince` LIKE '%".$lord."%' LIMIT 0 , 250")
+				$query("SELECT * FROM `server_data_".$ServerNumrical."` WHERE `allaince` LIKE '%".$lord."%' LIMIT 0 , 250")
 			}
 			$query("SELECT * FROM `server_data_".$ServerNumrical."` LIMIT 0, 250 ;");
 		} 
