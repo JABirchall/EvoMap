@@ -12,4 +12,4 @@ follow these steps to successfully install and use the system:
 4. Include access.php and change line 51 in login.php if needed
 
 --CSV convert--
-To convert an exsiting .csv file into a mysql server Sipley change the variables on the op of the file
+To convert an exsiting .csv file into a mysql server Simpley change the variables on the op of the file
