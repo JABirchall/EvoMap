@@ -1,4 +1,5 @@
 Simple Evony coordenate listing WebApp
+Relased under the GNU pulic licence 3
 
 --Login--
 The simple login system which uses MD5 to encrypt passwords stored in the database.
