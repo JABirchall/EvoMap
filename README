@@ -11,3 +11,5 @@ follow these steps to successfully install and use the system:
 3. upload the files to your webserver in the same structure as provided.
 4. Include access.php and change line 51 in login.php if needed
 
+--CSV convert--
+To convert an exsiting .csv file into a mysql server Sipley change the variables on the op of the file
