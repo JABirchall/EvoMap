@@ -1,0 +1,86 @@
+body
+{
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	color: #E3EBFF;
+	font-family: "Average Sans", sans-serif;
+	background: black;
+	background: rgb(0,5,12); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(0,5,12,1) 0%, rgba(0,0,0,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,5,12,1)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(0,5,12,1) 0%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(0,5,12,1) 0%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(0,5,12,1) 0%,rgba(0,0,0,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(0,5,12,1) 0%,rgba(0,0,0,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00050c', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
+#ribbon
+{
+	height: 100px;
+	padding: 8px 12px;
+	background: rgb(38,77,183); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(38,77,183,1) 0%, rgba(27,51,104,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(38,77,183,1)), color-stop(100%,rgba(27,51,104,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(38,77,183,1) 0%,rgba(27,51,104,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(38,77,183,1) 0%,rgba(27,51,104,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(38,77,183,1) 0%,rgba(27,51,104,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(38,77,183,1) 0%,rgba(27,51,104,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#264db7', endColorstr='#1b3368',GradientType=0 ); /* IE6-9 */
+}
+
+#main
+{
+	padding: 14px 18px;
+}
+
+#main h1, #main h2
+{
+	margin: 0px;
+}
+
+#main h1
+{
+	color: #22449C;
+	font-size: 42px;
+	line-height: 70%;
+	float: right;
+}
+
+#main h2
+{
+	clear: right;
+	color: #142F74;
+	float: right;
+}
+
+section
+{
+	max-width: 800px;
+}
+
+section h3
+{
+	color: #8D99B6;
+	font-size: 24px;
+	margin: 0px;
+	margin-top: 11px;
+}
+
+section p, section form
+{
+	font-size: 18px;
+	margin: 9px 0px;
+}
+
+.thumb
+{
+	display: block;
+	float: left;
+	width: 128px;
+	height: 128px;
+	overflow: hidden;
+	text-align: center;
+	margin: 3px;
+}
