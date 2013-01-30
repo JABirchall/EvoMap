@@ -1,12 +1,26 @@
 <head>
 <link rel="stylesheet" href="static/style.css">
-<title>Evony map :: DrWhat Project ::0.0.7 </title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<script type="text/javascript" src="include/prettify.js"></script>                                   
+<script type="text/javascript" src="include/kickstart.js"></script>
+<link rel="stylesheet" href="static/kickstart-buttons.css">
+<link rel="stylesheet" href="static/kickstart-forms.css">
+
+<title>Evony map :: DrWhat Project ::0.0.8 </title>
 </head>
 <?PHP 
 require('include/ArrServer.inc.php');
 require('include/access.inc.php');
-$form="<form action=\"#\" method=\get\"><fieldset>Server Number <input type=\"text\" name=\"s\"><br>Super Server? <input type=\"radio\" name=\"ss\" id=\"ss\" value=1>
-			*If yes Do not put 'SS' in, example for SS60 you would put 60 and tick Super server<br><input type=\"submit\" value=\"Submit\"></fieldset></form>";
+$form="<form action=\"#\" method=\get\">
+	<fieldset>
+	<legend>Choose your server</legend>
+	<label for=\"s\">Server Number</label>
+	<input id=\"s\" type=\"text\" name=\"s\"></br>
+	<label for=\"ss\">Super Server</label>
+	<input type=\"radio\" name=\"ss\" id=\"ss\" value=1>
+	*If yes Do not put 'SS' in, example for SS60 you would put 60 and tick Super server<br>
+	<button type=\"submit\" >Submit</fieldset></form>";
 if (!isset($_GET['s'])){
 	echo "<div id=\"ribbon\"><h1><u>:: EvoMap ::</u></h1><h2>Please choose your server number.</h2></div>".$log;
 	echo "<div id\"main\"><h3> This is a DrWhat development, this project is protect under the <a href=\"http://www.gnu.org/licenses/gpl.html\">GNU GENERAL PUBLIC LICENSE Version 3</a></h3>
@@ -73,7 +87,7 @@ if (empty($RequireFile)){
 }
 ?></br><hr>
 Any suggestions Email: DrWhat@Cryto.net
-<table id="map" class="tablesorter"></br>
+<table></br>
 <thead>
 <tr>
 <th>X |</th>
