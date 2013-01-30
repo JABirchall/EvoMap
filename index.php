@@ -46,8 +46,8 @@ if ($isSuperServer==0) {
 			$RequireFile = $ArrServerNumrical[$ServerNumrical]['Path'].'/'.$ArrServerNumrical[$ServerNumrical]['FileName'].'.csv';
 		}else {
  			echo "<div id=\"ribbon\"><h1><u>:: EvoMap ::</u></h1></br></div>
-			<div id=\"main\"><section><h3>We do not have that server in our list, Email drwhat@cryto.net To request it to be added.</h3></section>".$log."<section>
-			<br>".$form."</section></div>
+			<div id=\"main\"><section><h3>We do not have that server in our list, Email drwhat@cryto.net To request it to be added.</h3></section>".$log."<hr><section>
+			<br>".$form."</section></div><hr>
 			&copy DrWhat 2013"; 
 			$PageErrorId = 1;
 			exit();
@@ -58,8 +58,8 @@ if ($isSuperServer==0) {
 			$ServerNumrical="ss".$ServerNumrical;
 		} else { 
  			echo "<div id=\"ribbon\"><h1><u>:: EvoMap ::</u></h1></br></div>
-			<div id=\"main\"><section><h3>We do not have that server in our list, Email drwhat@cryto.net To request it to be added.</h3></section>".$log."<section>
-			<br>".$form."</section></div>
+			<div id=\"main\"><section><h3>We do not have that server in our list, Email drwhat@cryto.net To request it to be added.</h3></section>".$log."<hr><section>
+			<br>".$form."</section></div><hr>
 			&copy DrWhat 2013"; 
 			$PageErrorId = 1;
 			exit();
