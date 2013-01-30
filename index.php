@@ -13,14 +13,14 @@
 require('include/ArrServer.inc.php');
 require('include/access.inc.php');
 $form="<form action=\"#\" method=\get\">
-	<fieldset>
+	<section><fieldset>
 	<legend>Choose your server</legend>
 	<label for=\"s\">Server Number</label>
 	<input id=\"s\" type=\"text\" name=\"s\"></br>
 	<label for=\"ss\">Super Server</label>
 	<input type=\"checkbox\" name=\"ss\" id=\"ss\" value=1>
 	*If yes Do not put 'SS' in, example for SS60 you would put 60 and tick Super server<br>
-	<button type=\"submit\" >Submit</fieldset></form>";
+	<button type=\"submit\" >Submit</fieldset></section></form>";
 if (!isset($_GET['s'])){
 	echo "<div id=\"ribbon\"><h1><u>:: EvoMap ::</u></h1><h2>Please choose your server number.</h2></div>".$log;
 	echo "<div id\"main\"><h3> This is a DrWhat development, this project is protect under the <a href=\"http://www.gnu.org/licenses/gpl.html\">GNU GENERAL PUBLIC LICENSE Version 3</a></h3>
