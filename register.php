@@ -83,7 +83,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 .style7 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; }
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="static/style.css" />
 
 </head>
 

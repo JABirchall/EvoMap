@@ -84,3 +84,10 @@ section p, section form
 	text-align: center;
 	margin: 3px;
 }
+a{color: #333333;}
+a:hover{text-decoration: none;}
+
+table{
+	border: 1px solid #000000;
+	background-color: #F2F2F2;
+}

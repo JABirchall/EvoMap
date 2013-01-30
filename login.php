@@ -89,7 +89,7 @@ if (isset($_POST['username'])) {
 </style>
 
 
-<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="static/style.css" />
 <style type="text/css">
 <!--
 .style6 {font-size: 9px}
