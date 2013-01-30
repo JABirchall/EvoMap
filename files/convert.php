@@ -72,7 +72,7 @@ TRUNCATE `server_data_166`;
 		`prestige` int(15) NOT NULL,
 		`disposition` int(1) NOT NULL
 		) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
-		@mysql_query("TRUNCATE `server_data_166`;");
+		@mysql_query("TRUNCATE `".$databasetable."`;");
         $lines++;
 
         $line = trim($line," \t");
@@ -126,7 +126,7 @@ if ($save) {
 					`prestige` int(15) NOT NULL,
 					`disposition` int(1) NOT NULL
 					) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
-					@mysql_query("TRUNCATE `server_data_166`;");
+					@mysql_query("TRUNCATE `".$databasetable."`;");
 					fwrite($file2,$queries);
 					fclose($file2);
                 }
