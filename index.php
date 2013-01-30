@@ -4,8 +4,8 @@
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 <script type="text/javascript" src="include/prettify.js"></script>                                   
 <script type="text/javascript" src="include/kickstart.js"></script>
-<link rel="stylesheet" href="static/kickstart-buttons.css">
-<link rel="stylesheet" href="static/kickstart-forms.css">
+<link rel="stylesheet" href="static/kickstart.css">
+
 
 <title>Evony map :: DrWhat Project ::0.0.8 </title>
 </head>
@@ -87,7 +87,7 @@ if (empty($RequireFile)){
 }
 ?></br><hr>
 Any suggestions Email: DrWhat@Cryto.net
-<table></br>
+<table class="striped tight sortable"></br>
 <thead>
 <tr>
 <th>X |</th>
