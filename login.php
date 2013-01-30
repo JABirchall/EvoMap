@@ -78,7 +78,7 @@ if (isset($_POST['username'])) {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>Evony map :: DrWhat Project ::0.0.8 </title>
 <style type="text/css">
 <!--
 .style2 {font-size: 10px}
@@ -136,5 +136,6 @@ if (isset($_POST['username'])) {
   </table>
   <?php echo $fail; ?>
 </form>
+<p>
 </body>
 </html>
