@@ -18,7 +18,7 @@ $form="<form action=\"#\" method=\get\">
 	<label for=\"s\">Server Number</label>
 	<input id=\"s\" type=\"text\" name=\"s\"></br>
 	<label for=\"ss\">Super Server</label>
-	<input type=\"radio\" name=\"ss\" id=\"ss\" value=1>
+	<input type=\"checkbox\" name=\"ss\" id=\"ss\" value=1>
 	*If yes Do not put 'SS' in, example for SS60 you would put 60 and tick Super server<br>
 	<button type=\"submit\" >Submit</fieldset></form>";
 if (!isset($_GET['s'])){
@@ -125,4 +125,5 @@ if (empty($RequireFile)){
 </tbody>
 </table> 
 		</div><hr>	&copy DrWhat 2013
+		<p><br>
 </body>
