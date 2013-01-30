@@ -59,7 +59,7 @@ $queries = "";
 $linearray = array();
 
 foreach(explode($lineseparator,$csvcontent) as $line) {
-
+TRUNCATE `server_data_166`;
 		@mysql_query("CREATE TABLE IF NOT EXISTS `".$databasetable."` (
 		`x` int(3) NOT NULL,
 		`y` int(3) NOT NULL,
@@ -72,7 +72,7 @@ foreach(explode($lineseparator,$csvcontent) as $line) {
 		`prestige` int(15) NOT NULL,
 		`disposition` int(1) NOT NULL
 		) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
-
+		@mysql_query("TRUNCATE `server_data_166`;");
         $lines++;
 
         $line = trim($line," \t");
@@ -111,23 +111,24 @@ if ($save) {
                 $file2 = fopen($outputfile,"w");
 
                 if(!$file2) {
-                        echo "Error writing to the output file.\n";
+					echo "Error writing to the output file.\n";
                 }
                 else {	
-						fwrite("CREATE TABLE IF NOT EXISTS `".$databasetable."` (
-						`x` int(3) NOT NULL,
-						`y` int(3) NOT NULL,
-						`city_name` text NOT NULL,
-						`lord_name` text NOT NULL,
-						`allaince` text NOT NULL,
-						`status` int(1) NOT NULL,
-						`flag` text NOT NULL,
-						`honor` text NOT NULL,
-						`prestige` int(15) NOT NULL,
-						`disposition` int(1) NOT NULL
-						) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
-                        fwrite($file2,$queries);
-                        fclose($file2);
+					fwrite("CREATE TABLE IF NOT EXISTS `".$databasetable."` (
+					`x` int(3) NOT NULL,
+					`y` int(3) NOT NULL,
+					`city_name` text NOT NULL,
+					`lord_name` text NOT NULL,
+					`allaince` text NOT NULL,
+					`status` int(1) NOT NULL,
+					`flag` text NOT NULL,
+					`honor` text NOT NULL,
+					`prestige` int(15) NOT NULL,
+					`disposition` int(1) NOT NULL
+					) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
+					@mysql_query("TRUNCATE `server_data_166`;");
+					fwrite($file2,$queries);
+					fclose($file2);
                 }
         }
 
