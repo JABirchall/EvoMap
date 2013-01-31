@@ -1,6 +1,8 @@
 Simple Evony coordenate listing WebApp
 Relased under the GNU pulic licence 3
 
+Current Version: 0.0.8.3
+
 --Login--
 The simple login system which uses MD5 to encrypt passwords stored in the database.
 
@@ -14,23 +16,3 @@ follow these steps to successfully install and use the system:
 --CSV convert--
 To convert an exsiting .csv file into a mysql server Simpley change the variables on the op of the file
 
-git test
-
------ BEGIN: AEP3 Encrypted Text -----
-wBu6XioJXqgsBOERHBcU0bOYMoMQSmv1n9o1e0Ta87JT7kYriS3jiTZdo+NX
-EXjYRXmk1nrANZ/iM5W3iDOQzwnbAI2YUqAyLfH4OUIt9aRG87sRS+UIRuNE
-sHeXxKh/pTpWYh5dqby+yz34rtbaTK+FADZjQ3ySnZhsXfK8bUmUVh4rC/Ov
-PErNyZFqR7c1a35vXUq5G8sNQQJbAaOVFjc4VdSpS2vNaCPD620dBJ79pH5A
-72xnWxL5Y76FF+nax1F7uZmoTnnk8IL4beJHP3UCxTfhSAe+MZoiffVUQbNe
-zCwGBm41u5YUL5PYWUPEZ+8JgF5s8k1NdrohjldbMq4EXBH0tx1qv1UULxLU
-cnyegxSGn7+05NkYVCsQNpBxMLmWYkaFcfUaNgu1v2YXAqCIuX4zF6bTPHGq
-6NGi6P4IWeeKSnRHwl3KAScy2luzZR4RimNy+8nvUChfiXEid2Xd3kL/cyCY
-WqRBagamT+TUg2LvqCSJiYaZGUQ2mUsQeqfWfCQ0QPWbuKTV06fggIaDOGoK
-bNcd388D8mVqZ7lZQGN2WL3rOsVvELq74gj65EphaKJ+uXQX87dO6+l6ePa+
-gUBY0MfAwt3o1/ku1D8fh3dfbQUalZF5YslPc/eCkgVhhdo2nEye5+s+3xto
-3T671zU4lFP52zvZ7Y1lGPbyFsFW0BJ5QUO/H/fKRTCodU/opy6rmlVi0uG5
-VDIytyhrdDnaOLN9g4p7n4uV9ZOCFhyxLkVM4lECorAuVu9tBm36uMX8TSup
-NaICTtstlQVEA7/TJnKv2xOTRDLtCcksyVrFS39XcJGsKWHCyOltkJhqrHIR
-TPnjYt6uBbMu+6Q+EttH1F9SyZDtelMuF3Y/8eSdlSF9rAAytCyho2V2AxjE
-whez6HfA4h1z6nT/PcA24PA=
------ END: AEP3 Encrypted Text -----
