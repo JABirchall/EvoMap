@@ -24,7 +24,7 @@ $addauto = 0;
 /* Permission on the file should be set to 777. Either upload a sample file through ftp and
 /* change the permissions, or execute at the prompt: touch output.sql && chmod 777 output.sql
 /********************************/
-$save = ;
+$save = 0;
 $outputfile = "output.sql";
 /********************************/
 
