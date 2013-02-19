@@ -2,13 +2,14 @@
 
 
 $databasehost = "localhost";
-$databasename = "EvoMap";
-$databasetable = "server_data_1";
+$databasename = "evomap";
+$databasetable = "coord_info";
 $databaseusername ="root";
-$databasepassword = "root";
+$databasepassword = "";
 $fieldseparator = ",";
 $lineseparator = "\n";
-$csvfile = "1.csv";
+$csvfile = "166.csv";
+$SID = 323;
 
 /********************************/
 /* Would you like to add an ampty field at the beginning of these records?
@@ -59,8 +60,7 @@ $queries = "";
 $linearray = array();
 
 foreach(explode($lineseparator,$csvcontent) as $line) {
-TRUNCATE `server_data_166`;
-		@mysql_query("CREATE TABLE IF NOT EXISTS `".$databasetable."` (
+		/* @mysql_query("CREATE TABLE IF NOT EXISTS `".$databasetable."` (
 		`x` int(3) NOT NULL,
 		`y` int(3) NOT NULL,
 		`city_name` text NOT NULL,
@@ -71,8 +71,7 @@ TRUNCATE `server_data_166`;
 		`honor` text NOT NULL,
 		`prestige` int(15) NOT NULL,
 		`disposition` int(1) NOT NULL
-		) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
-		@mysql_query("TRUNCATE `".$databasetable."`;");
+		) ENGINE=InnoDB DEFAULT CHARSET=latin1;"); */
         $lines++;
 
         $line = trim($line," \t");
@@ -92,7 +91,8 @@ TRUNCATE `server_data_166`;
         if($addauto)
                 $query = "insert into $databasetable values('','$linemysql');";
         else
-                $query = "insert into $databasetable values('$linemysql');";
+                $query = "insert into coord_info (servers_id, x, y, city_name, lord_name, alliance, status, flag, honor, prestige, disposition)
+							values ('$SID','$linemysql');";
 
         $queries .= $query . "\n";
 
@@ -101,7 +101,7 @@ TRUNCATE `server_data_166`;
 
 @mysql_close($con);
 
-if ($save) {
+/* if ($save) {
 
         if (!is_writable($outputfile)) {
                 echo "File is not writable, check permissions.\n";
@@ -132,7 +132,7 @@ if ($save) {
                 }
         }
 
-}
+} */
 
 echo "Found a total of $lines records in this csv file.\n";
 
