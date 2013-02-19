@@ -83,7 +83,7 @@ if ($isSuperServer==0) {
 if (empty($RequireFile)){
 	exit();
 }else{
-	echo "You are viewing Coordenates for server ".$ServerNumrical.". </br> Download full list by <a href='".$RequireFile."'>clicking here</a>";
+	echo "You are viewing Coordenates for server ".$ServerNumrical.". </br>";// Download full list by <a href='".$RequireFile."'>clicking here</a>";
 }
 ?></br><hr>
 Any suggestions Email: DrWhat@Cryto.net

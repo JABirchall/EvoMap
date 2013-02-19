@@ -2,14 +2,13 @@
 
 
 $databasehost = "localhost";
-$databasename = "evomap";
-$databasetable = "coord_info";
+$databasename = "EvoMap";
+$databasetable = "server_data_1";
 $databaseusername ="root";
-$databasepassword = "";
+$databasepassword = "root";
 $fieldseparator = ",";
 $lineseparator = "\n";
-$csvfile = "166.csv";
-$SID = 323;
+$csvfile = "1.csv";
 
 /********************************/
 /* Would you like to add an ampty field at the beginning of these records?
@@ -25,7 +24,7 @@ $addauto = 0;
 /* Permission on the file should be set to 777. Either upload a sample file through ftp and
 /* change the permissions, or execute at the prompt: touch output.sql && chmod 777 output.sql
 /********************************/
-$save = 0;
+$save = 1;
 $outputfile = "output.sql";
 /********************************/
 
@@ -60,7 +59,8 @@ $queries = "";
 $linearray = array();
 
 foreach(explode($lineseparator,$csvcontent) as $line) {
-		/* @mysql_query("CREATE TABLE IF NOT EXISTS `".$databasetable."` (
+TRUNCATE `server_data_166`;
+		@mysql_query("CREATE TABLE IF NOT EXISTS `".$databasetable."` (
 		`x` int(3) NOT NULL,
 		`y` int(3) NOT NULL,
 		`city_name` text NOT NULL,
@@ -71,7 +71,8 @@ foreach(explode($lineseparator,$csvcontent) as $line) {
 		`honor` text NOT NULL,
 		`prestige` int(15) NOT NULL,
 		`disposition` int(1) NOT NULL
-		) ENGINE=InnoDB DEFAULT CHARSET=latin1;"); */
+		) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
+		@mysql_query("TRUNCATE `".$databasetable."`;");
         $lines++;
 
         $line = trim($line," \t");
@@ -91,8 +92,7 @@ foreach(explode($lineseparator,$csvcontent) as $line) {
         if($addauto)
                 $query = "insert into $databasetable values('','$linemysql');";
         else
-                $query = "insert into coord_info (servers_id, x, y, city_name, lord_name, alliance, status, flag, honor, prestige, disposition)
-							values ('$SID','$linemysql');";
+                $query = "insert into $databasetable values('$linemysql');";
 
         $queries .= $query . "\n";
 
@@ -101,7 +101,7 @@ foreach(explode($lineseparator,$csvcontent) as $line) {
 
 @mysql_close($con);
 
-/* if ($save) {
+if ($save) {
 
         if (!is_writable($outputfile)) {
                 echo "File is not writable, check permissions.\n";
@@ -132,7 +132,7 @@ foreach(explode($lineseparator,$csvcontent) as $line) {
                 }
         }
 
-} */
+}
 
 echo "Found a total of $lines records in this csv file.\n";
 
