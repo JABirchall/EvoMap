@@ -54,9 +54,18 @@ $_POST['lord']='';
 if (!isset($_POST['alliance'])){
 $_POST['alliance']='';
 }
+if (!isset($_POST['city'])){
+$_POST['city']='';
+}
 $alliance =  mysql_real_escape_string($_POST['alliance']);
 $lord =  mysql_real_escape_string($_POST['lord']);
-$sql = "SELECT * FROM `coord_info` WHERE `lord_name` LIKE '%$lord%' AND `alliance` LIKE '%$alliance%' ORDER BY `coord_info`.`disposition` ASC LIMIT 0 , 250";
+$city =  mysql_real_escape_string($_POST['city']);
+$sql = "SELECT * FROM `coord_info`
+		WHERE `lord_name` LIKE '%$lord%'
+		AND `alliance` LIKE '%$alliance%'
+		AND `city_name` LIKE '%$city%'
+		ORDER BY `coord_info`.`disposition`
+		ASC LIMIT 0 , 250";
 echo "1 = working: ".mysql_select_db($database_modulatemedia, $modulatemedia).'<br>';
 $output = mysql_query($sql, $modulatemedia) or die(mysql_error());
 
