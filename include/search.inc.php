@@ -1,4 +1,52 @@
 <?PHP
+
+require('db.inc.php');
+
+if (!isset($_POST['lord'])){
+$_POST['lord']='';
+}
+if (!isset($_POST['alliance'])){
+$_POST['alliance']='';
+}
+if (!isset($_POST['city'])){
+$_POST['city']='';
+}
+if (!isset($_POST['flag'])){
+$_POST['flag']='';
+}
+if (!isset($SID)){
+$SID = '';
+}
+if (!isset($lord)){
+$lord = '';
+}
+if (!isset($city)){
+$city = '';
+}
+if (!isset($allliance)){
+$alliance = '';
+}
+if (!isset($flag)){
+$flag='';
+}
+$alliance =  mysql_real_escape_string($_POST['alliance']);
+$lord =  mysql_real_escape_string($_POST['lord']);
+$city =  mysql_real_escape_string($_POST['city']);
+$flag =  mysql_real_escape_string($_POST['flag']);
+$sql = "SELECT * FROM `coord_info`
+		WHERE `lord_name` LIKE '%$lord%'
+		AND `alliance` LIKE '%$alliance%'
+		AND `city_name` LIKE '%$city%'
+		AND `flag` LIKE '%$flag%'
+		ORDER BY `coord_info`.`ci_id`
+		ASC LIMIT 0 , 250";
+$working = "<br>1 = working: ".mysql_select_db($database_modulatemedia, $modulatemedia).'<br>';
+$output = mysql_query($sql, $modulatemedia) or die(mysql_error());
+
+$results = "Number of results: ".mysql_num_rows($output).'<br>';
+
+
+
 $header = "
 <body>
 <div id=\"ribbon\">
@@ -56,55 +104,38 @@ $table = "
 </tr>
 </thead>
 <tbody>";
-if (!isset($SID)){
-$SID='null';
+/* if (!isset($SID)){
+$SID = '';
 }
-
+if (!isset($lord)){
+$lord = '';
+}
+if (!isset($city)){
+$city = '';
+}
+if (!isset($allliance)){
+$alliance = '';
+}
+if (!isset($flag)){
+$flag='';
+} */
 
 $form ="
 <form action=\"index.php\" method=\"POST\">
 <section><fieldset>
 <legend>Search</legend>
 <label for=\"s\">Lord Name</label>
-<input id=\"lord\" type=\"text\" name=\"lord\"></br>
+<input id=\"lord\" value=\"$lord\" type=\"text\" name=\"lord\"></br>
 <label for=\"s\">City Name</label>
-<input id=\"city\" type=\"text\" name=\"city\"></br>
+<input id=\"city\" value=\"$city\" type=\"text\" name=\"city\"></br>
 <label for=\"s\">Alliance Name</label>
-<input id=\"alliance\" type=\"text\" name=\"alliance\"></br>
+<input id=\"alliance\" value=\"$alliance\" type=\"text\" name=\"alliance\"></br>
 <label for=\"s\">Flag</label>
-<input id=\"flag\" type=\"text\" name=\"flag\"></br>
+<input id=\"flag\" value=\"$flag\" type=\"text\" name=\"flag\"></br>
 <input name=\"SID\" type=\"hidden\" value=\"$SID\">
 <button type=\"submit\" >Submit</fieldset></section></form>";
 
-require('db.inc.php');
 
-if (!isset($_POST['lord'])){
-$_POST['lord']='';
-}
-if (!isset($_POST['alliance'])){
-$_POST['alliance']='';
-}
-if (!isset($_POST['city'])){
-$_POST['city']='';
-}
-if (!isset($_POST['flag'])){
-$_POST['flag']='';
-}
-$alliance =  mysql_real_escape_string($_POST['alliance']);
-$lord =  mysql_real_escape_string($_POST['lord']);
-$city =  mysql_real_escape_string($_POST['city']);
-$flag =  mysql_real_escape_string($_POST['flag']);
-$sql = "SELECT * FROM `coord_info`
-		WHERE `lord_name` LIKE '%$lord%'
-		AND `alliance` LIKE '%$alliance%'
-		AND `city_name` LIKE '%$city%'
-		AND `flag` LIKE '%$flag%'
-		ORDER BY `coord_info`.`ci_id`
-		ASC LIMIT 0 , 250";
-$working = "<br>1 = working: ".mysql_select_db($database_modulatemedia, $modulatemedia).'<br>';
-$output = mysql_query($sql, $modulatemedia) or die(mysql_error());
-
-$results = "Number of results: ".mysql_num_rows($output).'<br>';
 /* while ( $result = mysql_fetch_assoc($output) ) {
 
 $sid = "<td>".$result['servers_id']."</td>";
