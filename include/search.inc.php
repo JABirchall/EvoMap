@@ -29,12 +29,14 @@ $alliance = '';
 if (!isset($flag)){
 $flag='';
 }
+$SID =  mysql_real_escape_string($_POST['SID']);
 $alliance =  mysql_real_escape_string($_POST['alliance']);
 $lord =  mysql_real_escape_string($_POST['lord']);
 $city =  mysql_real_escape_string($_POST['city']);
 $flag =  mysql_real_escape_string($_POST['flag']);
 $sql = "SELECT * FROM `coord_info`
-		WHERE `lord_name` LIKE '%$lord%'
+		WHERE `servers_id` = '$SID' 
+		AND `lord_name` LIKE '%$lord%'
 		AND `alliance` LIKE '%$alliance%'
 		AND `city_name` LIKE '%$city%'
 		AND `flag` LIKE '%$flag%'
@@ -132,7 +134,7 @@ $form ="
 <input id=\"alliance\" value=\"$alliance\" type=\"text\" name=\"alliance\"></br>
 <label for=\"s\">Flag</label>
 <input id=\"flag\" value=\"$flag\" type=\"text\" name=\"flag\"></br>
-<input name=\"SID\" type=\"hidden\" value=\"$SID\">
+           <input name=\"SID\" type=\"hidden\" value=\"$SID\">
 <button type=\"submit\" >Submit</fieldset></section></form>";
 
 
