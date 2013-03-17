@@ -1,4 +1,4 @@
-<?PHP
+<?PHP 
 /*
 Eclipse Distribution License - v 1.0
 
@@ -14,18 +14,42 @@ Redistribution and use in source and binary forms, with or without modification,
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-require('db.inc.php');
-
-$lord = ( isset ( $_POST['lord'] ) === true ) ? $_POST['lord'] : '';
-$alliance = ( isset ( $_POST['alliance'] ) === true ) ? $_POST['alliance'] : '';
-$city = ( isset ( $_POST['city'] ) === true ) ? $_POST['city'] : '';
-$flag = ( isset ( $_POST['flag'] ) === true ) ? $_POST['flag'] : '';
-
-$query 			= $db->prepare("SELECT * FROM `coord_info` WHERE `servers_id` = :SID AND `lord_name` LIKE :lord AND `alliance` LIKE :alliance AND `city_name` LIKE :city AND `flag` LIKE :flag ORDER BY `coord_info`.`ci_id` ASC LIMIT 0 , 100");
-$players 		= $db->prepare("SELECT DISTINCT `servers_id`,`lord_name`, `prestige`, `honor`, `alliance` FROM `coord_info` WHERE `servers_id` = :SID AND `lord_name` LIKE :lord AND `alliance` LIKE :alliance ORDER BY `coord_info`.`prestige` ASC LIMIT 0 , 100");
-$search 		= $db->prepare("SELECT `searched`, `month` FROM `search` WHERE `user_id` =:user_id");
-$addsearch 		= $db->prepare("UPDATE `evomap`.`search` SET `searched` = :searched + 1 WHERE `search`.`user_id` =:user_id;");
-$removelimit	= $db->prepare("UPDATE `evomap`.`search` SET `searched` = 0, `month` = month(now()) WHERE `search`.`user_id` = :user_id;");
+$curdir = getcwd ();
+chdir('C:/xampp/htdocs/vb');
+require_once('C:/xampp/htdocs/vb/global.php');
+chdir ($curdir);
+require('include/search.inc.php');
+require('include/var.inc.php');
+echo $header . "<br>";
+require_once('C:/xampp/htdocs/vb/login_inc.php');
+if ($vbulletin->userinfo['userid']!=0) 
+{
+	if (isset($_POST['SID']) === false) // if a server is not selected, echo the select server form
+	{
+		echo "<br><br><form action=\"players.php\" method=\"POST\">" . $servers;
+		echo $working;
+		echo $footer;
+	} else {
+		echo "<form action=\"players.php\" method=\"POST\">" . $form . "<br><a href='players.php'>New server</a><br><br>";
+		print_r ($players);
+		echo $working;
+		echo $results;
+		echo $tableplayers;
+		$players->bindValue(':SID', $SID, PDO::PARAM_INT);
+		$players->bindValue(':lord', '%' . $lord . '%', PDO::PARAM_STR);
+		$players->bindValue(':alliance', '%' . $alliance . '%', PDO::PARAM_STR);
+		$players->execute();
+		while ( $result = $players->fetch(PDO::FETCH_ASSOC) )
+		{
+			$sid = "<td>" . $result['servers_id'] . "</td>";
+			$lord = "<td>" . $result['lord_name'] . "</td>";
+			$alliance = "<td>" . $result['alliance'] . "</td>";
+			$honor = "<td>" . $result['honor'] . "</td>";
+			$prestige = "<td>" . $result['prestige'] . "</td>";
+			echo "<tr>" . $sid . "" . $lord . "" . $alliance . "" . $honor . "" . $prestige . "</tr>";
+		}
+	}
+}
+echo 'DEBUGGING';
+echo '<br><pre>', print_r($players->errorInfo()), '<pre>';
 ?>
-
- if ($_GET['partln'] == 'true') &&
