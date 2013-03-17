@@ -1,7 +1,7 @@
 Simple Evony coordenate listing WebApp
-Relased under the GNU pulic licence 3
+Relased under the Eclipse Public License 1.0
 
-Current Version: 0.0.8.3
+Current Version: 0.0.9
 
 --Login--
 The simple login system which uses MD5 to encrypt passwords stored in the database.
@@ -15,4 +15,6 @@ follow these steps to successfully install and use the system:
 
 --CSV convert--
 To convert an exsiting .csv file into a mysql server Simpley change the variables on the op of the file
+
+--Please read the License--
 

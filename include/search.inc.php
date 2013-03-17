@@ -1,4 +1,4 @@
-<?php
+<?PHP
 /*
 Eclipse Distribution License - v 1.0
 
@@ -14,24 +14,18 @@ Redistribution and use in source and binary forms, with or without modification,
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-$config['db'] = array(
-	'host' 	=> 	'localhost',	//Your mysql hostname
-	'user' 	=> 	'root',			//Your mysql user
-	'db' 	=> 	'evomap',		//Your mysql Database
-	'pass'	=> 	''				//Your mysql Password
-);
-$debug 	= 0; //Are we debuigging a problem?
-$maint 	= 0; //Are we doing some work?
+require('db.inc.php');
 
+$lord = ( isset ( $_POST['lord'] ) === true ) ? $_POST['lord'] : '';
+$alliance = ( isset ( $_POST['alliance'] ) === true ) ? $_POST['alliance'] : '';
+$city = ( isset ( $_POST['city'] ) === true ) ? $_POST['city'] : '';
+$flag = ( isset ( $_POST['flag'] ) === true ) ? $_POST['flag'] : '';
 
-$db = new PDO( 'mysql:host=' . $config['db']['host'] . ';dbname=' . $config['db']['db'] , $config['db']['user'], $config['db']['pass'] );
-	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-if ($debug){
-	$PDOstatement = array(
-			'title' 	=> 'DEBUGGING',
-			'error' 	=> '<br><pre>', print_r($query->errorInfo()), '<pre>' );
-}
-
-
+$query 			= $db->prepare("SELECT * FROM `coord_info` WHERE `servers_id` = :SID AND `lord_name` LIKE :lord AND `alliance` LIKE :alliance AND `city_name` LIKE :city AND `flag` LIKE :flag ORDER BY `coord_info`.`ci_id` ASC LIMIT 0 , 100");
+$players 		= $db->prepare("SELECT DISTINCT `servers_id`,`lord_name`, `prestige`, `honor`, `alliance` FROM `coord_info` WHERE `servers_id` = :SID AND `lord_name` LIKE :lord AND `alliance` LIKE :alliance ORDER BY `coord_info`.`prestige` ASC LIMIT 0 , 100");
+$search 		= $db->prepare("SELECT `searched`, `month` FROM `search` WHERE `user_id` =:user_id");
+$addsearch 		= $db->prepare("UPDATE `evomap`.`search` SET `searched` = :searched + 1 WHERE `search`.`user_id` =:user_id;");
+$removelimit	= $db->prepare("UPDATE `evomap`.`search` SET `searched` = 0, `month` = month(now()) WHERE `search`.`user_id` = :user_id;");
 ?>
+
+ if ($_GET['partln'] == 'true') &&
