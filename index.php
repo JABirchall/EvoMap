@@ -25,7 +25,7 @@ echo $header . "<br>";
 
 require_once('C:/xampp/htdocs/vb/login_inc.php');
 if ($vbulletin->userinfo['userid']!=0) {
-	if (isset($_POST['SID']) === false || !is_numeric($_POST['SID'])) // if a server is not selected, echo the select server form
+	if (isset($_POST['SID']) === false || is_numeric($_POST['SID']) === false) // if a server is not selected, echo the select server form
 	{
 		echo "<br><br><form action=\"index.php\" method=\"POST\">" . $servers;
 		echo $working;
