@@ -17,15 +17,14 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 $curdir = getcwd ();
 chdir('C:/xampp/htdocs/vb');
-require_once('C:/xampp/htdocs/vb/global.php');
+require_once('path/to/your/vb/global.php');
 chdir ($curdir);
 require('include/search.inc.php');
 require('include/var.inc.php');
 echo $header . "<br>";
-
-require_once('C:/xampp/htdocs/vb/login_inc.php');
+require_once('path/to/your/vb/login_inc.php');
 if ($vbulletin->userinfo['userid']!=0) {
-	if (isset($_POST['SID']) === false) // if a server is not selected, echo the select server form
+	if (isset($_POST['SID']) === false || is_numeric($_POST['SID']) === false) // if a server is not selected, echo the select server form
 	{
 		echo "<br><br><form action=\"index.php\" method=\"POST\">" . $servers;
 		echo $working;
@@ -101,8 +100,6 @@ if ($vbulletin->userinfo['userid']!=0) {
 }else{
 	echo $footer;
 }
-/*
 echo 'DEBUGGING';
 echo '<br><pre>', print_r($query->errorInfo()), '<pre>';
-*/
 ?>
