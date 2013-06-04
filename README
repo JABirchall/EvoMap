@@ -1,18 +1,14 @@
 Simple Evony coordenate listing WebApp
 Relased under the GNU pulic licence 3
 
-Current Version: 0.0.8.3
+Current Version: 0.0.9
 
 --Login--
-The simple login system which uses MD5 to encrypt passwords stored in the database.
+By default the script is set to use Vbulltin 4.*.* to handle login and sessions.
 
-follow these steps to successfully install and use the system:
-
-1. open db.inc.php in the includes folder and change the database, username and password to yours.
-2. import db.sql in phpmyadmin or copy and paste the query.
-3. upload the files to your webserver in the same structure as provided.
-4. Include access.php and change line 51 in login.php if needed
 
 --CSV convert--
 To convert an exsiting .csv file into a mysql server Simpley change the variables on the op of the file
 
+--Note--
+This does not scan servers for you. its a script to access a database with the datasets stored and enables you to search though them.
