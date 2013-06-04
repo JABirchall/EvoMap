@@ -102,4 +102,9 @@ if ($vbulletin->userinfo['userid']!=0) {
 }
 echo 'DEBUGGING';
 echo '<br><pre>', print_r($query->errorInfo()), '<pre>';
+<<<<<<< HEAD
 ?>
+=======
+*/
+?>
+>>>>>>> 70943c24f0209cd9a097514ce07f0c1a6d29b7a4
