@@ -1,4 +1,5 @@
 <?php
+header('content-type: text/javascript');
 include('include/search.inc.php');
 if (!isset($_GET['API']) && @$_GET['API'] != 'JSONAPI') {
 	echo 'E99: Please use your API user to gain access!';
