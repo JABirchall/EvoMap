@@ -11,7 +11,7 @@ if (isset($_GET['API']) && $_GET['API'] = 'JSONAPI') {
 			echo 'E02';
 		} else if (!isset($_POST['sid'])){
 			echo 'E05';
-		} else if (isset($_POST['lord'], $_POST['x'], $_POST['lord'], $_POST['sid'])) {
+		} else if (isset($_POST['lord'], $_POST['x'], $_POST['y'], $_POST['sid'])) {
 		$data = array(
 			'SID' => $_POST['sid'],
 			'lord' => $_POST['lord'],
