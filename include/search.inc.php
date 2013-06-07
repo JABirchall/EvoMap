@@ -27,6 +27,8 @@ $search 		= $db->prepare("SELECT `searched`, `month` FROM `search` WHERE `user_i
 $addsearch 		= $db->prepare("UPDATE `evomap`.`search` SET `searched` = :searched + 1 WHERE `search`.`user_id` =:user_id;");
 $removelimit	= $db->prepare("UPDATE `evomap`.`search` SET `searched` = 0, `month` = month(now()) WHERE `search`.`user_id` = :user_id;");
 $adduser 		= $db->prepare("INSERT INTO `evomap`.`search` (`id`, `user_id`, `searched`, `month`) VALUES (NULL, :user_id, '0', month(now()))");
+$api_submit 	= $db->prepare("INSERT INTO coord_info (servers_id, x, y, city_name, lord_name, alliance, status, flag, honor, prestige, disposition) VALUES (:sid, :xxx, :yyy, :city, :lord, :alliance, 0, :flag, :honor, :prestige, 1);")
+
 
 
 ?>
