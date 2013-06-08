@@ -1,51 +1,36 @@
 <?php
 header('content-type: text/javascript');
 include('include/search.inc.php');
-if (!isset($_GET['API']) && @$_GET['API'] != 'JSONAPI') {
+if (!isset($_GET['API']) && @$_GET['API'] != 'JSONAPI')
+{
 	echo 'E99: Please use your API user to gain access!';
-} else {
-	if (@$_GET['user'] != 'botdonator') {
+}
+else
+{
+	if (@$_GET['user'] != 'botdonator')
+	{
 		echo 'E98: Please use a VALID API user!';
-	} else {
-		if (!isset($_POST['lord']))
+	}
+	else
+	{
+		if (!isset($_POST['json']))
 		{
 			echo 'E01';
-		}
-		else if (!isset($_POST['x']) || !is_numeric($_POST['x']))
+		} else if (!isset($_GET['x']))
+		{
+			echo 'E02';
+		} else if (!isset($_GET['y']))
 		{
 			echo 'E03';
 		}
-		else if (!isset($_POST['y']) || !is_numeric($_POST['y']))
+		else if (isset($_POST['json']))
 		{
-			echo 'E02';
+			$data = json_decode($_POST['json']);
+			$data->x = $_GET['x'];
+			$data->y = $_GET['y'];
+			print_r($data);
 		}
-		else if (!isset($_POST['sid']) || !is_numeric($_POST['sid']))
-		{
-			echo 'E05';
-		}
-		else if (!isset($_POST['city']))
-		{
-			echo 'E06';
-		}
-		else if (!isset($_POST['alliance']))
-		{
-			echo 'E07';
-		}
-		else if (!isset($_POST['flag']))
-		{
-			echo 'E08';
-		}
-		else if (!isset($_POST['honor']) || !is_numeric($_POST['honor']))
-		{
-			echo 'E09';
-		}
-		else if (!isset($_POST['prestige']) || !is_numeric($_POST['prestige']))
-		{
-			echo 'E10';
-		}
-		else if (isset($_POST['lord'], $_POST['x'], $_POST['y'], $_POST['sid'], $_POST['city'], $_POST['alliance'], $_POST['flag'], $_POST['honor'], $_POST['prestige']))
-		{
-			try {
+		try {
 				$api_submit->bindValue(':sid', $_POST['sid'], PDO::PARAM_INT);
 				$api_submit->bindValue(':lord', $_POST['lord'], PDO::PARAM_STR);
 				$api_submit->bindValue(':xxx', $_POST['x'], PDO::PARAM_INT);
@@ -60,7 +45,7 @@ if (!isset($_GET['API']) && @$_GET['API'] != 'JSONAPI') {
 			} catch(PDOException $e){
 				die($e->getMessage());
 			}
-		}
+		
 	}
 }
 ?>
