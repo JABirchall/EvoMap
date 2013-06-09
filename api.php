@@ -16,8 +16,9 @@ if (!isset($_GET['API']) && @$_GET['API'] != 'JSONAPI'){
 			foreach ($data as $key => $data) {
 				$data->x = intval($data->id % 800);
 				$data->y = intval($data->id / 800);
-				$data->sid = intval($POST['sid']);
-		try {
+				$data->sid = intval($_POST['sid']);
+				//print_r($data);
+	try {
 				$api_submit->bindValue(':sid', $data->sid, PDO::PARAM_INT);
 				$api_submit->bindValue(':lord', $data->userName, PDO::PARAM_STR);
 				$api_submit->bindValue(':xxx', $data->x, PDO::PARAM_INT);
@@ -28,9 +29,13 @@ if (!isset($_GET['API']) && @$_GET['API'] != 'JSONAPI'){
 				$api_submit->bindValue(':honor', $data->honor, PDO::PARAM_INT);
 				$api_submit->bindValue(':prestige', $data->prestige, PDO::PARAM_INT);
 				$api_submit->execute();
-				echo 'AOK';
+				@$count++;
 			} catch(PDOException $e){
-				die($e->getMessage());
+				//die($e);
 			}
-}}}}
+			}
+			echo "AOK: " . @$count . " records sumbmited.";
+		}
+	}
+}
 ?>
