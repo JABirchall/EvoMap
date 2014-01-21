@@ -9,8 +9,6 @@ $SID = (isset($_GET['Servers'])) ? $_GET['Servers'] : '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	require_once 'kendo/lib/DataSourceResult.php';
 	$i = NEW init();
-	$DB = NEW database($DB_ip, $DB_database, $DB_user, $DB_password);
-	$map = NEW map();
 
     header('Content-Type: application/json');
     //print_r($request = json_decode(file_get_contents('php://input')));
